@@ -27,6 +27,8 @@ def palindrome_permutation?(string)
     if char_count_hash.length == 1
       #if value is exactly 1, it passes.
       return char_count_hash.value?(1)
+    else
+      return false
     end
   end
 end
