@@ -1,11 +1,30 @@
 
 def permutations?(string1, string2)
-  # Write a method which will take two strings as arguments and returns true if one string is a permutation of the other.
-
   if string1 == "" && string2 == ""
     return true
   elsif string1.length != string2.length
     return false
   end
 
+  char_count_hash = {}
+
+  string1.each_char do |char|
+    if char_count_hash.has_key?(char)
+      char_count_hash[char] = char_count_hash[char] + 1
+    else
+      char_count_hash[char] = 0
+    end
+  end
+
+  string2.each_char do |char|
+    if char_count_hash.has_key?(char)
+      if char_count_hash[char] == 0
+        char_count_hash.delete(char)
+      else
+        char_count_hash[char] = char_count_hash[char] - 1
+      end
+    end
+  end
+
+  char_count_hash.empty? ? (return true) : (return false)
 end

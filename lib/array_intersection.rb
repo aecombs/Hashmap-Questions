@@ -1,5 +1,4 @@
 def intersection(list1, list2)
-  # Design and implement a method that takes two integer arrays with unique values and returns their intersection in a new array.
   num_hash = {}
 
   list1.each do |num|
